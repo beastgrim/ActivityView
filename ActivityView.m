@@ -41,13 +41,16 @@
 
 #pragma mark - Base 
 + (void)startAnimation {
+    [self startAnimationUserInteractionEnabled:YES];
+}
++ (void)startAnimationUserInteractionEnabled:(BOOL)enabled {
     [self instance].alpha = 1.f;
-
+    
     UIWindow *keyWindow = [[[UIApplication sharedApplication] delegate] window];
     [keyWindow.viewForBaselineLayout addSubview:[self instance]];
-    keyWindow.userInteractionEnabled = NO;
+    keyWindow.userInteractionEnabled = enabled;
 }
-+ (void)endAnimation {
++ (void)stopAnimation {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
 
         [self instance].alpha = 0.f;

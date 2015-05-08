@@ -11,6 +11,8 @@
 @interface ActivityView : UIView
 
 + (void)startAnimation;
-+ (void)endAnimation;
++ (void)startAnimationUserInteractionEnabled:(BOOL)enabled;
+
++ (void)stopAnimation;
 
 @end
